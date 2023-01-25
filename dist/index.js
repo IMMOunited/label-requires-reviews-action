@@ -20331,13 +20331,13 @@ actions_toolkit_1.Toolkit.run(async (toolkit) => {
     var _a;
     toolkit.log.info('Running Action');
     const configPath = (_a = process.env.CONFIG_PATH) !== null && _a !== void 0 ? _a : '.github/label-requires-reviews.yml';
-    const rules = toolkit.config(configPath);
+    const rules = toolkit.inputs.rules;
     toolkit.log.info('Configured rules: ', rules);
     // Get the repository information
     if (!process.env.GITHUB_EVENT_PATH) {
         toolkit.exit.failure('Process env GITHUB_EVENT_PATH is undefined');
     }
-    const { owner, issue_number, repo, } = (0, main_1.findRepositoryInformation)(process.env.GITHUB_EVENT_PATH, toolkit.log, toolkit.exit);
+    const { owner, issue_number, repo } = (0, main_1.findRepositoryInformation)(process.env.GITHUB_EVENT_PATH, toolkit.log, toolkit.exit);
     const client = toolkit.github;
     // Get the list of configuration rules for the labels on the issue
     const matchingRules = await (0, main_1.getRulesForLabels)({ owner, issue_number, repo }, client, rules);

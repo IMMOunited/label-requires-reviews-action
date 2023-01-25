@@ -4,12 +4,12 @@ import {
   findRepositoryInformation,
   getCurrentReviewCount,
   getMaxReviewNumber,
-  getRulesForLabels,
+  getRulesForLabels
 } from './main'
 import {
   IssuesListLabelsOnIssueParams,
   PullsListReviewsParams,
-  Rule,
+  Rule
 } from './types'
 
 const args: ToolkitOptions = {
@@ -27,7 +27,7 @@ Toolkit.run(async (toolkit: Toolkit) => {
   toolkit.log.info('Running Action')
   const configPath: string =
     process.env.CONFIG_PATH ?? '.github/label-requires-reviews.yml'
-  const rules: Rule[] = toolkit.config(configPath)
+  const rules: Rule[] = toolkit.inputs.rules
   toolkit.log.info('Configured rules: ', rules)
 
   // Get the repository information

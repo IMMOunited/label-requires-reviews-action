@@ -4,12 +4,12 @@ import {
   findRepositoryInformation,
   getCurrentReviewCount,
   getMaxReviewNumber,
-  getRulesForLabels
+  getRulesForLabels,
 } from './main'
 import {
   IssuesListLabelsOnIssueParams,
   PullsListReviewsParams,
-  Rule
+  Rule,
 } from './types'
 
 const args: ToolkitOptions = {

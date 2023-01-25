@@ -20328,10 +20328,8 @@ const args = {
     secrets: ['GITHUB_TOKEN'],
 };
 actions_toolkit_1.Toolkit.run(async (toolkit) => {
-    var _a;
     toolkit.log.info('Running Action');
-    const configPath = (_a = process.env.CONFIG_PATH) !== null && _a !== void 0 ? _a : '.github/label-requires-reviews.yml';
-    const rules = toolkit.inputs.rules;
+    const rules = JSON.parse(toolkit.inputs.rules);
     toolkit.log.info('Configured rules: ', rules);
     // Get the repository information
     if (!process.env.GITHUB_EVENT_PATH) {

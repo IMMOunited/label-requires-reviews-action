@@ -25,7 +25,7 @@ const args: ToolkitOptions = {
 
 Toolkit.run(async (toolkit: Toolkit) => {
   toolkit.log.info('Running Action')
-  const rules: Rule[] = toolkit.inputs.rules
+  const rules: Rule[] = JSON.parse(toolkit.inputs.rules)
   toolkit.log.info('Configured rules: ', rules)
 
   // Get the repository information

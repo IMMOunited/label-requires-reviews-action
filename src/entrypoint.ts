@@ -1,15 +1,11 @@
-import {
-  getRulesForLabels,
-  getMaxReviewNumber,
-  getCurrentReviewCount,
-  findRepositoryInformation,
-} from './main'
 import { Toolkit, ToolkitOptions } from 'actions-toolkit'
 import { GitHub } from 'actions-toolkit/lib/github'
 import {
-  Rule,
+  findRepositoryInformation, getCurrentReviewCount, getMaxReviewNumber, getRulesForLabels
+} from './main'
+import {
   IssuesListLabelsOnIssueParams,
-  PullsListReviewsParams,
+  PullsListReviewsParams, Rule
 } from './types'
 
 const args: ToolkitOptions = {
@@ -17,6 +13,7 @@ const args: ToolkitOptions = {
     'pull_request_review.submitted',
     'pull_request_review.edited',
     'pull_request_review.dismissed',
+    'pull_request.labeled',
     'pull_request.synchronize',
   ],
   secrets: ['GITHUB_TOKEN'],

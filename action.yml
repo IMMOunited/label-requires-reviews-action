@@ -8,6 +8,9 @@ inputs:
   github_token:
     description: "Github token to authenticate Octokit"
     required: true
+  rules:
+    description: "Label rules"
+    required: true
 branding:
   icon: "user-check"  
   color: "green"
